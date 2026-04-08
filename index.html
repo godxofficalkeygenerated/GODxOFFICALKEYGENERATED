@@ -27,64 +27,72 @@
 
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px; padding: 40px 20px
-            width: 85%; max-width: 400px; text-align: center;
-            box-shadow: 0 0 40px rgba(110, 0, 255, 0.2);
+            border-radius: 35px; 
+            padding: 50px 30px; /* Padding badhai hai */
+            width: 90%; /* Box thoda bada kiya hai */
+            max-width: 450px; /* Max size bhi badha di hai */
+            text-align: center;
+            box-shadow: 0 0 50px rgba(110, 0, 255, 0.25);
             animation: slideUp 0.8s ease-out;
         }
 
         .logo-text {
-            font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 900;
+            font-family: 'Orbitron', sans-serif; font-size: 32px; font-weight: 900;
             background: linear-gradient(to right, #fff, #6e00ff);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
         }
 
         .btn-premium {
             background: linear-gradient(45deg, #6e00ff, #a000ff);
-            border: none; color: white; padding: 16px; border-radius: 15px;
+            border: none; color: white; padding: 18px; border-radius: 18px;
             width: 100%; font-family: 'Orbitron', sans-serif;
-            font-weight: bold; cursor: pointer; margin-top: 20px;
-            box-shadow: 0 8px 20px rgba(110, 0, 255, 0.3);
+            font-weight: bold; cursor: pointer; margin-top: 25px;
+            box-shadow: 0 8px 25px rgba(110, 0, 255, 0.4);
+            transition: 0.3s;
         }
+
+        .btn-premium:active { transform: scale(0.95); }
 
         #key-box {
-            background: rgba(0,0,0,0.5); border: 1px dashed #00d4ff;
-            color: #00ffcc; padding: 20px; border-radius: 12px;
-            font-family: monospace; font-size: 18px; margin: 20px 0;
+            background: rgba(0,0,0,0.6); border: 2px dashed #00d4ff;
+            color: #00ffcc; padding: 25px; border-radius: 15px;
+            font-family: monospace; font-size: 20px; margin: 25px 0;
+            word-wrap: break-word;
         }
 
-        .tg-btn { margin-top: 25px; text-decoration: none; color: #24A1DE; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .tg-btn { margin-top: 30px; text-decoration: none; color: #24A1DE; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 14px; }
         
         #cheat-error { display: none; color: #ff4d4d; }
 
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
 <div id="god-overlay">
     <div id="particles-js"></div>
-    <div class="logo-text">GOD X ANIME</div>
-    <div style="font-size: 10px; color: #6e00ff; margin-bottom: 25px; letter-spacing: 2px;">AUTHORIZE ACCESS</div>
+    <div class="logo-text">GOD X OFFICAL</div>
+    <div style="font-size: 11px; color: #6e00ff; margin-bottom: 30px; letter-spacing: 3px; font-weight: bold;">AUTHORIZE ACCESS</div>
 
     <div id="step-1" class="glass-card">
         <div id="cheat-error">
-            <h3>⚠️ SECURITY ALERT</h3>
-            <p style="font-size:12px; color:#aaa;">Please go back and complete the Caslinks step!</p>
+            <h3 style="font-family: 'Orbitron';">⚠️ SECURITY ALERT</h3>
+            <p style="font-size:14px; color:#aaa;">Please go back and complete the Caslinks verification first!</p>
         </div>
 
         <div id="verify-content">
-            <h3 style="margin-top:0;">VERIFICATION</h3>
-            <p style="color:#888; font-size: 12px; margin-bottom: 20px;">Complete the check below to continue.</p>
+            <h3 style="margin-top:0; font-family: 'Orbitron'; letter-spacing: 1px;">VERIFICATION</h3>
+            <p style="color:#888; font-size: 13px; margin-bottom: 25px;">Complete the robot check to decrypt your key.</p>
             
-            <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+            <div style="display: flex; justify-content: center; margin-bottom: 15px;">
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2OOULF4WlpGlnu" data-callback="onVerify" data-theme="dark"></div>
             </div>
             
-            <div id="loading-box" style="display:none; margin-top:15px; color:#00d4ff; font-weight: bold; font-size: 14px;">
-                DECRYPTING... <span id="timer">15</span>s
+            <div id="loading-box" style="display:none; margin-top:20px; color:#00d4ff; font-weight: bold; font-size: 16px; letter-spacing: 1px;">
+                DECRYPTING SERVER... <span id="timer">15</span>s
             </div>
 
             <button id="gen-btn" class="btn-premium" style="display:none;" onclick="showKey()">GET ACCESS KEY</button>
@@ -92,27 +100,29 @@
     </div>
 
     <div id="step-2" class="glass-card" style="display:none;">
-        <h3 style="margin-top:0; color:#00ffcc;">KEY GENERATED</h3>
-        <p style="color:#888; font-size: 11px;">💥 REAL SHOP KEY GENERATED 💥</p>
-        <div id="key-box">LOADING...</div>
-        <button id="copy-btn" class="btn-premium" onclick="copyKey()">COPY KEY</button>
-        <p style="color:#555; margin-top:20px; font-size: 10px;">REGISTER PARA SUCCESSFULLY</p>
+        <h3 style="margin-top:0; color:#00ffcc; font-family: 'Orbitron';">KEY GENERATED</h3>
+        <p style="color:#888; font-size: 12px;">KEY GENERATED SUCCESSFULLY</p>
+        <div id="key-box">GENERATING...</div>
+        <button id="copy-btn" class="btn-premium" onclick="copyKey()">COPY ACCESS KEY</button>
+        <p style="color:#555; margin-top:25px; font-size: 11px; font-weight: bold;">REGISTERED KEY</p>
     </div>
 
     <a href="https://t.me/+Pva19q6Ds4I0OWE1" class="tg-btn" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="18" style="margin-right:8px;">
-        OFFICIAL TELEGRAM
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="20" style="margin-right:10px;">
+        JOIN OFFICIAL TELEGRAM
     </a>
 </div>
 
 <script>
-    // Particle background
-    particlesJS('particles-js', { "particles": { "number": { "value": 60 }, "color": { "value": "#6e00ff" }, "opacity": { "value": 0.3 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#6e00ff", "opacity": 0.2 }, "move": { "enable": true, "speed": 1.5 } } });
+    // Particles configuration
+    particlesJS('particles-js', { "particles": { "number": { "value": 70 }, "color": { "value": "#6e00ff" }, "opacity": { "value": 0.4 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#6e00ff", "opacity": 0.2 }, "move": { "enable": true, "speed": 1.2 } } });
 
-    // Referral and Security Check
+    // Security Check
     window.onload = function() {
         var ref = document.referrer;
+        // Anti-refresh protection
         if (performance.navigation.type === 1) { window.location.href = "https://caslinks.com/member/dashboard"; }
+        // Caslinks only access
         if (ref === "" || ref.indexOf("caslinks.com") === -1) {
             document.getElementById('verify-content').style.display = 'none';
             document.getElementById('cheat-error').style.display = 'block';
@@ -131,7 +141,8 @@
             if(time <= 0) {
                 clearInterval(countdown);
                 verified = true;
-                document.getElementById('loading-box').innerHTML = "SYSTEM READY ✅";
+                document.getElementById('loading-box').innerHTML = "ACCESS GRANTED ✅";
+                document.getElementById('loading-box').style.color = "#00ffcc";
                 document.getElementById('gen-btn').style.display = 'block';
             }
         }, 1000);
@@ -149,17 +160,17 @@
         const text = document.getElementById('key-box').innerText;
         navigator.clipboard.writeText(text);
         const btn = document.getElementById('copy-btn');
-        btn.innerText = "COPIED!";
+        btn.innerText = "COPIED TO CLIPBOARD!";
         btn.style.background = "#00ffcc";
         btn.style.color = "#000";
         setTimeout(() => {
-            btn.innerText = "COPY KEY";
+            btn.innerText = "COPY ACCESS KEY";
             btn.style.background = "linear-gradient(45deg, #6e00ff, #a000ff)";
             btn.style.color = "#fff";
         }, 2000);
     }
 
-    // Anti-Inspect
+    // Disable Inspect Element
     document.onkeydown = function(e) {
         if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
             return false;
