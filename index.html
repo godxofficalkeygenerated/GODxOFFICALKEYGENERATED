@@ -6,11 +6,10 @@
     <title>GOD x OFFICIAL | PREMIUM KEY SYSTEM</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
-        /* UI Styling from Premium Code */
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
             background-color: #050505; color: white; 
@@ -24,100 +23,65 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
 
-        #particles-js {
-            position: absolute; width: 100%; height: 100%; z-index: -1;
-        }
+        #particles-js { position: absolute; width: 100%; height: 100%; z-index: -1; }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 40px 20px;
-            width: 85%; max-width: 400px;
-            text-align: center;
+            border-radius: 30px; padding: 40px 20px;
+            width: 85%; max-width: 400px; text-align: center;
             box-shadow: 0 0 40px rgba(110, 0, 255, 0.2);
             animation: slideUp 0.8s ease-out;
         }
 
         .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 28px; font-weight: 900;
-            letter-spacing: 2px; margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 900;
             background: linear-gradient(to right, #fff, #6e00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px rgba(110, 0, 255, 0.4);
-        }
-
-        .status-badge {
-            background: rgba(110, 0, 255, 0.15);
-            border: 1px solid #6e00ff;
-            color: #d1b3ff;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            display: inline-block;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         .btn-premium {
             background: linear-gradient(45deg, #6e00ff, #a000ff);
-            border: none; color: white;
-            padding: 16px; border-radius: 15px;
+            border: none; color: white; padding: 16px; border-radius: 15px;
             width: 100%; font-family: 'Orbitron', sans-serif;
-            font-weight: bold; cursor: pointer;
+            font-weight: bold; cursor: pointer; margin-top: 20px;
             box-shadow: 0 8px 20px rgba(110, 0, 255, 0.3);
-            transition: 0.3s; margin-top: 20px;
         }
-
-        .btn-premium:active { transform: scale(0.95); }
 
         #key-box {
-            background: rgba(0,0,0,0.5);
-            border: 1px dashed #00d4ff;
-            color: #00ffcc;
-            padding: 20px; border-radius: 12px;
-            font-family: monospace; font-size: 18px;
-            margin: 20px 0; word-break: break-all;
+            background: rgba(0,0,0,0.5); border: 1px dashed #00d4ff;
+            color: #00ffcc; padding: 20px; border-radius: 12px;
+            font-family: monospace; font-size: 18px; margin: 20px 0;
         }
 
-        .tg-btn {
-            margin-top: 25px; text-decoration: none;
-            color: #24A1DE; font-weight: bold; font-size: 14px;
-            display: flex; align-items: center; justify-content: center;
-        }
+        .tg-btn { margin-top: 25px; text-decoration: none; color: #24A1DE; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        
+        #cheat-error { display: none; color: #ff4d4d; }
 
-        #cheat-error { display: none; color: #ff4d4d; font-weight: bold; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
 <div id="god-overlay">
     <div id="particles-js"></div>
-
     <div class="logo-text">GOD X OFFICIAL</div>
-    <div class="status-badge">KEY GENERATED</div>
+    <div style="font-size: 10px; color: #6e00ff; margin-bottom: 25px; letter-spacing: 2px;">AUTHORIZE ACCESS</div>
 
     <div id="step-1" class="glass-card">
         <div id="cheat-error">
-            <h3 style="margin-top:0;">⚠️ SECURITY ALERT</h3>
-            <p style="font-size:12px; color:#aaa;">Please go back and complete the Caslinks step again to get a new key!</p>
+            <h3>⚠️ SECURITY ALERT</h3>
+            <p style="font-size:12px; color:#aaa;">Please go back and complete the Caslinks step!</p>
         </div>
 
         <div id="verify-content">
-            <h3 style="margin-top:0;">AUTHENTICATION</h3>
-            <p style="color:#888; font-size: 12px; margin-bottom: 20px;">Verify you are not a bot to access the server.</p>
+            <h3 style="margin-top:0;">VERIFICATION</h3>
+            <p style="color:#888; font-size: 12px; margin-bottom: 20px;">Complete the check below to continue.</p>
             
-            <div class="g-recaptcha" data-sitekey="6Le_Da0sAAAAAGohUYIrBtS6S2hODjZfnZ5sFg18" data-callback="onVerify" data-theme="dark" style="transform:scale(0.85);-webkit-transform:scale(0.85);transform-origin:center; display: inline-block;"></div>
+            <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAAC2NNVI4yPhbH0i" data-callback="onVerify" data-theme="dark"></div>
+            </div>
             
             <div id="loading-box" style="display:none; margin-top:15px; color:#00d4ff; font-weight: bold; font-size: 14px;">
                 DECRYPTING... <span id="timer">15</span>s
@@ -129,40 +93,26 @@
 
     <div id="step-2" class="glass-card" style="display:none;">
         <h3 style="margin-top:0; color:#00ffcc;">KEY GENERATED</h3>
-        <p style="color:#888; font-size: 11px;">KEY REGISTER SUCCESSFULLY</p>
+        <p style="color:#888; font-size: 11px;">💥 REAL SHOP KEY GENERATED 💥</p>
         <div id="key-box">LOADING...</div>
         <button id="copy-btn" class="btn-premium" onclick="copyKey()">COPY KEY</button>
-        <p style="color:#555; margin-top:20px; font-size: 10px; letter-spacing: 1px;">REGISTER PARA SUCCESSFULLY</p>
+        <p style="color:#555; margin-top:20px; font-size: 10px;">REGISTER PARA SUCCESSFULLY</p>
     </div>
 
     <a href="https://t.me/+Pva19q6Ds4I0OWE1" class="tg-btn" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="20" style="margin-right:8px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="18" style="margin-right:8px;">
         OFFICIAL TELEGRAM
     </a>
 </div>
 
 <script>
-    // Particles Background
-    particlesJS('particles-js', {
-        "particles": {
-            "number": { "value": 60 },
-            "color": { "value": "#6e00ff" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.3 },
-            "size": { "value": 2 },
-            "line_linked": { "enable": true, "distance": 150, "color": "#6e00ff", "opacity": 0.2, "width": 1 },
-            "move": { "enable": true, "speed": 1.5 }
-        }
-    });
+    // Particle background
+    particlesJS('particles-js', { "particles": { "number": { "value": 60 }, "color": { "value": "#6e00ff" }, "opacity": { "value": 0.3 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#6e00ff", "opacity": 0.2 }, "move": { "enable": true, "speed": 1.5 } } });
 
-    // SECURITY LOGIC from original code
+    // Referral and Security Check
     window.onload = function() {
         var ref = document.referrer;
-        // Refresh check
-        if (performance.navigation.type === 1) {
-            window.location.href = "https://caslinks.com/member/dashboard"; 
-        }
-        // Referrer check
+        if (performance.navigation.type === 1) { window.location.href = "https://caslinks.com/member/dashboard"; }
         if (ref === "" || ref.indexOf("caslinks.com") === -1) {
             document.getElementById('verify-content').style.display = 'none';
             document.getElementById('cheat-error').style.display = 'block';
@@ -193,7 +143,6 @@
         document.getElementById('key-box').innerText = randomKey;
         document.getElementById('step-1').style.display = 'none';
         document.getElementById('step-2').style.display = 'block';
-        sessionStorage.setItem('key_generated', 'true');
     }
 
     function copyKey() {
@@ -217,6 +166,5 @@
         }
     };
 </script>
-
 </body>
 </html>
