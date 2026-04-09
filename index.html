@@ -26,119 +26,106 @@
         #particles-js { position: absolute; width: 100%; height: 100%; z-index: -1; }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 35px; 
-            padding: 50px 30px;
-            width: 90%;
-            max-width: 450px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 2px solid #00d4ff; /* Cyan border as per reference */
+            border-radius: 25px; 
+            padding: 40px 25px;
+            width: 85%;
+            max-width: 400px;
             text-align: center;
-            box-shadow: 0 0 50px rgba(110, 0, 255, 0.25);
-            animation: slideUp 0.8s ease-out;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+            animation: slideUp 0.5s ease-out;
         }
 
         .logo-text {
-            font-family: 'Orbitron', sans-serif; font-size: 32px; font-weight: 900;
-            background: linear-gradient(to right, #fff, #6e00ff);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 900;
+            color: #fff; margin-bottom: 5px; letter-spacing: 2px;
+        }
+
+        .status-title {
+            font-family: 'Orbitron', sans-serif;
+            color: #00d4ff; font-size: 22px; margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
 
         .btn-premium {
-            background: linear-gradient(45deg, #6e00ff, #a000ff);
-            border: none; color: white; padding: 18px; border-radius: 18px;
+            background: #00d4ff;
+            border: none; color: #000; padding: 15px; border-radius: 12px;
             width: 100%; font-family: 'Orbitron', sans-serif;
-            font-weight: bold; cursor: pointer; margin-top: 25px;
-            box-shadow: 0 8px 25px rgba(110, 0, 255, 0.4);
+            font-weight: bold; cursor: pointer; margin-top: 20px;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
             transition: 0.3s;
         }
 
         #key-box {
-            background: rgba(0,0,0,0.6); 
-            border: 2px solid #00d4ff; 
-            color: #00ffcc; padding: 25px; border-radius: 15px;
-            font-family: monospace; font-size: 20px; margin: 25px 0;
+            background: rgba(0,0,0,0.4); 
+            border: 2px solid #39ff14; /* Neon Green Border */
+            color: #39ff14; padding: 20px; border-radius: 15px;
+            font-family: 'Orbitron', sans-serif; font-size: 16px; margin: 20px 0;
             word-wrap: break-word;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2), 0 0 15px rgba(57, 255, 20, 0.3);
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
         }
 
-        .tg-btn { margin-top: 30px; text-decoration: none; color: #24A1DE; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .tg-btn { margin-top: 40px; text-decoration: none; color: #00d4ff; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
         
-        #cheat-error { display: none; color: #ff4d4d; }
-
-        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
 <div id="god-overlay">
     <div id="particles-js"></div>
-    <div class="logo-text">GOD X OFFICAL</div>
-    <div style="font-size: 11px; color: #6e00ff; margin-bottom: 30px; letter-spacing: 3px; font-weight: bold;">AUTHORIZE ACCESS</div>
-
+    
     <div id="step-1" class="glass-card">
-        <div id="cheat-error">
-            <h3 style="font-family: 'Orbitron';">⚠️ SECURITY ALERT</h3>
-            <p style="font-size:14px; color:#aaa;">Please complete Caslinks verification!</p>
+        <h2 class="status-title">VERIFICATION</h2>
+        <p style="color:#888; font-size: 13px; margin-bottom: 25px;">Complete the check to continue.</p>
+        
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2OOULF4WlpGlnu" data-callback="onVerify" data-theme="dark"></div>
         </div>
-
-        <div id="verify-content">
-            <h3 style="margin-top:0; font-family: 'Orbitron';">VERIFICATION</h3>
-            
-            <div style="display: flex; justify-content: center; margin-bottom: 15px;">
-                <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2OOULF4WlpGlnu" data-callback="onVerify" data-theme="dark"></div>
-            </div>
-            
-            <div id="loading-box" style="display:none; margin-top:20px; font-weight: bold; font-size: 16px;">
-                verifycontent... <span id="timer">15</span>s
-            </div>
+        
+        <div id="loading-box" style="display:none; color:#00d4ff; font-weight: bold;">
+            SYSTEM READY ✅
         </div>
     </div>
 
     <div id="step-2" class="glass-card" style="display:none;">
-        <h3 style="margin-top:0; color:#00ffcc; font-family: 'Orbitron';">KEY GENERATED</h3>
-        <p style="color:#888; font-size: 12px;">KEY REGISTER SUCCESSFULLY</p>
+        <h2 class="status-title">Verificação Concluída!</h2>
+        <p style="color:#bbb; font-size: 14px;">Sua nova chave foi gerada!</p>
+        
         <div id="key-box">GODxOFFICAL-2-8PfFS</div>
-        <button id="copy-btn" class="btn-premium" onclick="copyKey()">COPY ACCESS KEY</button>
-        <p style="color:#555; margin-top:25px; font-size: 11px;">REGISTERED KEY</p>
+        
+        <button id="copy-btn" class="btn-premium" onclick="copyKey()">Copiar Chave</button>
     </div>
 
-    <a href="https://t.me/+Pva19q6Ds4I0OWE1" class="tg-btn" target="_blank">
-        JOIN OFFICIAL TELEGRAM
-    </a>
+    <a href="#" class="tg-btn">JOIN OFFICIAL TELEGRAM</a>
 </div>
 
 <script>
-    particlesJS('particles-js', { "particles": { "number": { "value": 70 }, "color": { "value": "#6e00ff" }, "opacity": { "value": 0.4 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#6e00ff", "opacity": 0.2 }, "move": { "enable": true, "speed": 1.2 } } });
+    particlesJS('particles-js', { "particles": { "number": { "value": 50 }, "color": { "value": "#00d4ff" }, "opacity": { "value": 0.3 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#00d4ff", "opacity": 0.1 }, "move": { "enable": true, "speed": 1 } } });
 
     function onVerify() {
         document.getElementById('loading-box').style.display = 'block';
-        let time = 15;
-        let countdown = setInterval(() => {
-            time--;
-            document.getElementById('timer').innerText = time;
-            if(time <= 0) {
-                clearInterval(countdown);
-                
-                // Blue Tick aur Success dikhayega
-                document.getElementById('loading-box').innerHTML = 'ACCESS GRANTED <span style="color: #007bff;">&#10004;</span>';
-                
-                // 1 second wait karke automatically next page par transfer karega
-                setTimeout(() => {
-                    document.getElementById('step-1').style.display = 'none';
-                    document.getElementById('step-2').style.display = 'block';
-                }, 1000);
-            }
-        }, 1000);
+        
+        // Success hone ke baad 1.5 second wait karega phir UI change hogi
+        setTimeout(() => {
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+        }, 1500);
     }
 
     function copyKey() {
         const text = document.getElementById('key-box').innerText;
         navigator.clipboard.writeText(text);
         const btn = document.getElementById('copy-btn');
-        btn.innerText = "COPIED!";
-        setTimeout(() => { btn.innerText = "COPY ACCESS KEY"; }, 2000);
+        btn.innerText = "COPIADO!";
+        btn.style.background = "#39ff14";
+        setTimeout(() => { 
+            btn.innerText = "Copiar Chave"; 
+            btn.style.background = "#00d4ff";
+        }, 2000);
     }
 </script>
 </body>
