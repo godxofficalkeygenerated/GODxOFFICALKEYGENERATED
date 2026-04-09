@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOD x OFFICIAL | KEY SYSTEM</title>
+    <title>GOD x OFFICIAL KEY GENERATER</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -12,127 +12,167 @@
     <style>
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            /* Dark Blue Background as requested */
-            background-color: #0a0b10; color: white; 
+            background-color: #050505; color: white; 
             font-family: 'Poppins', sans-serif; overflow: hidden;
             user-select: none;
         }
 
         #god-overlay {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #050505; z-index: 9999;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 9999;
         }
 
         #particles-js { position: absolute; width: 100%; height: 100%; z-index: -1; }
 
         .glass-card {
-            background: rgba(15, 18, 26, 0.8);
-            backdrop-filter: blur(15px);
-            border: 2px solid #00d4ff; 
-            border-radius: 20px; 
-            padding: 35px 20px;
-            width: 85%;
-            max-width: 380px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 35px; 
+            padding: 50px 30px;
+            width: 90%;
+            max-width: 450px;
             text-align: center;
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
-            animation: fadeIn 0.6s ease-in-out;
+            box-shadow: 0 0 50px rgba(110, 0, 255, 0.25);
+            animation: slideUp 0.8s ease-out;
         }
 
-        /* Branding for Page 1 */
-        .brand-header {
-            font-family: 'Orbitron', sans-serif; font-size: 26px; font-weight: 900;
-            color: #a855f7; margin-bottom: 20px; letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+        .logo-text {
+            font-family: 'Orbitron', sans-serif; font-size: 32px; font-weight: 900;
+            background: linear-gradient(to right, #fff, #6e00ff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
         }
 
-        .status-title {
-            font-family: 'Orbitron', sans-serif;
-            color: #00d4ff; font-size: 20px; margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
-        }
-
-        #key-display-box {
-            background: rgba(0,0,0,0.3); 
-            border: 2px solid #39ff14; /* Neon Green Border */
-            color: #39ff14; padding: 18px; border-radius: 12px;
-            font-family: 'Orbitron', sans-serif; font-size: 15px; margin: 20px 0;
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
-            text-shadow: 0 0 5px rgba(57, 255, 20, 0.4);
-        }
-
-        .copy-btn {
-            background: #00d4ff;
-            border: none; color: #000; padding: 14px; border-radius: 10px;
+        .btn-premium {
+            background: linear-gradient(45deg, #6e00ff, #a000ff);
+            border: none; color: white; padding: 18px; border-radius: 18px;
             width: 100%; font-family: 'Orbitron', sans-serif;
-            font-weight: bold; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            font-weight: bold; cursor: pointer; margin-top: 25px;
+            box-shadow: 0 8px 25px rgba(110, 0, 255, 0.4);
             transition: 0.3s;
         }
 
-        .footer-link { 
-            position: absolute; bottom: 40px; text-decoration: none; 
-            color: #00d4ff; font-weight: bold; font-size: 13px; 
-            letter-spacing: 1px; font-family: 'Orbitron', sans-serif;
+        .btn-premium:active { transform: scale(0.95); }
+
+        #key-box {
+            background: rgba(0,0,0,0.6); 
+            border: 2px solid #00d4ff; /* Bunde hata kar solid line laga di hai */
+            color: #00ffcc; padding: 25px; border-radius: 15px;
+            font-family: monospace; font-size: 20px; margin: 25px 0;
+            word-wrap: break-word;
         }
+
+        .tg-btn { margin-top: 30px; text-decoration: none; color: #24A1DE; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 14px; }
         
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        #cheat-error { display: none; color: #ff4d4d; }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
 <div id="god-overlay">
     <div id="particles-js"></div>
-    
+    <div class="logo-text">GOD X OFFICAL</div>
+    <div style="font-size: 11px; color: #6e00ff; margin-bottom: 30px; letter-spacing: 3px; font-weight: bold;">AUTHORIZE ACCESS</div>
+
     <div id="step-1" class="glass-card">
-        <div class="brand-header">GOD X OFFICAL</div>
-        <h2 class="status-title">VERIFICATION</h2>
-        <p style="color:#888; font-size: 12px; margin-bottom: 20px;">Complete the check below to continue.</p>
-        
-        <div style="display: flex; justify-content: center; margin-bottom: 15px;">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2NNVI4yPhBH0i_" data-callback="verifySuccess" data-theme="dark"></div>
+        <div id="cheat-error">
+            <h3 style="font-family: 'Orbitron';">⚠️ SECURITY ALERT</h3>
+            <p style="font-size:14px; color:#aaa;">Please go back and complete the Caslinks verification first!</p>
         </div>
-        
-        <div id="status-ready" style="display:none; color:#39ff14; font-size: 14px; font-weight: bold;">
-            verifycontent
+
+        <div id="verify-content">
+            <h3 style="margin-top:0; font-family: 'Orbitron'; letter-spacing: 1px;">VERIFICATION</h3>
+            <p style="color:#888; font-size: 13px; margin-bottom: 25px;">Complete the robot check to decrypt your key.</p>
+            
+            <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2OOULF4WlpGlnu" data-callback="onVerify" data-theme="dark"></div>
+            </div>
+            
+            <div id="loading-box" style="display:none; margin-top:20px; color:#00d4ff; font-weight: bold; font-size: 16px; letter-spacing: 1px;">
+                VERIFICATION.... <span id="timer">15</span>s
+            </div>
+
+            <button id="gen-btn" class="btn-premium" style="display:none;" onclick="showKey()">GET ACCESS KEY</button>
         </div>
     </div>
 
     <div id="step-2" class="glass-card" style="display:none;">
-        <h2 class="status-title" style="font-size: 22px;">Verificação Concluída!</h2>
-        <p style="color:#bbb; font-size: 13px;">Sua nova chave foi gerada!</p>
-        
-        <div id="key-display-box">GODxOFFICAL-2-8PfFS</div>
-        
-        <button id="action-btn" class="copy-btn" onclick="copyKey()">Copiar Chave</button>
+        <h3 style="margin-top:0; color:#00ffcc; font-family: 'Orbitron';">KEY GENERATED</h3>
+        <p style="color:#888; font-size: 12px;">KEY GENERATED SUCCESSFULLY</p>
+        <div id="key-box">GENERATING...</div>
+        <button id="copy-btn" class="btn-premium" onclick="copyKey()">COPY ACCESS KEY</button>
+        <p style="color:#555; margin-top:25px; font-size: 11px; font-weight: bold;">KEY GENERATE SUCCESSFULLY</p>
     </div>
 
-    <a href="https://t.me/AnkitHunterModOfficial" class="footer-link">JOIN OFFICIAL TELEGRAM</a>
+    <a href="https://t.me/+Pva19q6Ds4I0OWE1" class="tg-btn" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="20" style="margin-right:10px;">
+        JOIN OFFICIAL TELEGRAM
+    </a>
 </div>
 
 <script>
-    // Particles setup
-    particlesJS('particles-js', { "particles": { "number": { "value": 40 }, "color": { "value": "#00d4ff" }, "opacity": { "value": 0.2 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#00d4ff", "opacity": 0.1 }, "move": { "enable": true, "speed": 0.8 } } });
+    particlesJS('particles-js', { "particles": { "number": { "value": 70 }, "color": { "value": "#6e00ff" }, "opacity": { "value": 0.4 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#6e00ff", "opacity": 0.2 }, "move": { "enable": true, "speed": 1.2 } } });
 
-    function verifySuccess() {
-        document.getElementById('status-ready').style.display = 'block';
-        setTimeout(() => {
-            document.getElementById('step-1').style.display = 'none';
-            document.getElementById('step-2').style.display = 'block';
-        }, 1200);
+    window.onload = function() {
+        var ref = document.referrer;
+        if (performance.navigation.type === 1) { window.location.href = "https://caslinks.com/member/dashboard"; }
+        if (ref === "" || ref.indexOf("caslinks.com") === -1) {
+            document.getElementById('verify-content').style.display = 'none';
+            document.getElementById('cheat-error').style.display = 'block';
+        }
+    }
+
+    let verified = false;
+    const shopKeys = ["GODxOFFICAL-2-8PfFS", "GODxOFFICAL-2-wqShf"];
+
+    function onVerify() {
+        document.getElementById('loading-box').style.display = 'block';
+        let time = 15;
+        let countdown = setInterval(() => {
+            time--;
+            document.getElementById('timer').innerText = time;
+            if(time <= 0) {
+                clearInterval(countdown);
+                verified = true;
+                // Green tick ki jagah Blue Tick font style ke saath
+                document.getElementById('loading-box').innerHTML = 'ACCESS GRANTED <span style="color: #007bff; font-weight: bold;">&#10004;</span>';
+                document.getElementById('gen-btn').style.display = 'block';
+            }
+        }, 1000);
+    }
+
+    function showKey() {
+        if(!verified) return;
+        const randomKey = shopKeys[Math.floor(Math.random() * shopKeys.length)];
+        document.getElementById('key-box').innerText = randomKey;
+        document.getElementById('step-1').style.display = 'none';
+        document.getElementById('step-2').style.display = 'block';
     }
 
     function copyKey() {
-        const keyText = document.getElementById('key-display-box').innerText;
-        navigator.clipboard.writeText(keyText);
-        const btn = document.getElementById('action-btn');
-        btn.innerText = "COPIADO!";
-        btn.style.background = "#39ff14";
-        setTimeout(() => { 
-            btn.innerText = "Copiar Chave"; 
-            btn.style.background = "#00d4ff";
+        const text = document.getElementById('key-box').innerText;
+        navigator.clipboard.writeText(text);
+        const btn = document.getElementById('copy-btn');
+        btn.⁹
+            = "COPIED TO CLIPBOARD!";
+        btn.style.background = "#00ffcc";
+        btn.style.color = "#000";
+        setTimeout(() => {
+            btn.innerText = "COPY ACCESS KEY";
+            btn.style.background = "linear-gradient(45deg, #6e00ff, #a000ff)";
+            btn.style.color = "#fff";
         }, 2000);
     }
+
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
+            return false;
+        }
+    };
 </script>
 </body>
 </html>
