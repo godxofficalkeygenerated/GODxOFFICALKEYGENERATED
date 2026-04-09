@@ -54,11 +54,9 @@
             transition: 0.3s;
         }
 
-        .btn-premium:active { transform: scale(0.95); }
-
         #key-box {
             background: rgba(0,0,0,0.6); 
-            border: 2px solid #00d4ff; /* Bunde hata kar solid line laga di hai */
+            border: 2px solid #00d4ff; /* Dashed se Solid line kar di hai */
             color: #00ffcc; padding: 25px; border-radius: 15px;
             font-family: monospace; font-size: 20px; margin: 25px 0;
             word-wrap: break-word;
@@ -81,19 +79,18 @@
     <div id="step-1" class="glass-card">
         <div id="cheat-error">
             <h3 style="font-family: 'Orbitron';">⚠️ SECURITY ALERT</h3>
-            <p style="font-size:14px; color:#aaa;">Please go back and complete the Caslinks verification first!</p>
+            <p style="font-size:14px; color:#aaa;">Please complete Caslinks verification!</p>
         </div>
 
         <div id="verify-content">
-            <h3 style="margin-top:0; font-family: 'Orbitron'; letter-spacing: 1px;">VERIFICATION</h3>
-            <p style="color:#888; font-size: 13px; margin-bottom: 25px;">Complete the robot check to decrypt your key.</p>
+            <h3 style="margin-top:0; font-family: 'Orbitron';">VERIFICATION</h3>
             
             <div style="display: flex; justify-content: center; margin-bottom: 15px;">
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2OOULF4WlpGlnu" data-callback="onVerify" data-theme="dark"></div>
             </div>
             
-            <div id="loading-box" style="display:none; margin-top:20px; color:#00d4ff; font-weight: bold; font-size: 16px; letter-spacing: 1px;">
-                VERIFICATION SERVER... <span id="timer">15</span>s
+            <div id="loading-box" style="display:none; margin-top:20px; font-weight: bold; font-size: 16px;">
+               Verification... <span id="timer">15</span>s
             </div>
 
             <button id="gen-btn" class="btn-premium" style="display:none;" onclick="showKey()">GET ACCESS KEY</button>
@@ -102,14 +99,13 @@
 
     <div id="step-2" class="glass-card" style="display:none;">
         <h3 style="margin-top:0; color:#00ffcc; font-family: 'Orbitron';">KEY GENERATED</h3>
-        <p style="color:#888; font-size: 12px;">KEY GENERATED SUCCESSFULLY</p>
+        <p style="color:#888; font-size: 12px;">KEY REGISTER SUCCESSFULLY</p>
         <div id="key-box">GENERATING...</div>
         <button id="copy-btn" class="btn-premium" onclick="copyKey()">COPY ACCESS KEY</button>
-        <p style="color:#555; margin-top:25px; font-size: 11px; font-weight: bold;">KEY GENERATE SUCCESSFULLY</p>
+        <p style="color:#555; margin-top:25px; font-size: 11px;">REGISTERED KEY</p>
     </div>
 
     <a href="https://t.me/+Pva19q6Ds4I0OWE1" class="tg-btn" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="20" style="margin-right:10px;">
         JOIN OFFICIAL TELEGRAM
     </a>
 </div>
@@ -119,7 +115,6 @@
 
     window.onload = function() {
         var ref = document.referrer;
-        if (performance.navigation.type === 1) { window.location.href = "https://caslinks.com/member/dashboard"; }
         if (ref === "" || ref.indexOf("caslinks.com") === -1) {
             document.getElementById('verify-content').style.display = 'none';
             document.getElementById('cheat-error').style.display = 'block';
@@ -127,8 +122,6 @@
     }
 
     let verified = false;
-    const shopKeys = ["GODxOFFICAL-2-8PfFS", "GODxOFFICAL-2-wqShf"];
-
     function onVerify() {
         document.getElementById('loading-box').style.display = 'block';
         let time = 15;
@@ -138,8 +131,8 @@
             if(time <= 0) {
                 clearInterval(countdown);
                 verified = true;
-                // Green tick ki jagah Blue Tick font style ke saath
-                document.getElementById('loading-box').innerHTML = 'ACCESS GRANTED <span style="color: #007bff; font-weight: bold;">&#10004;</span>';
+                // Green Tick ki jagah Blue Tick (&#10004; with blue color)
+                document.getElementById('loading-box').innerHTML = 'ACCESS GRANTED <span style="color: #007bff; font-size: 20px;">&#10004;</span>';
                 document.getElementById('gen-btn').style.display = 'block';
             }
         }, 1000);
@@ -147,32 +140,17 @@
 
     function showKey() {
         if(!verified) return;
-        const randomKey = shopKeys[Math.floor(Math.random() * shopKeys.length)];
-        document.getElementById('key-box').innerText = randomKey;
+        document.getElementById('key-box').innerText = "GODxOFFICAL-2-8PfFS";
         document.getElementById('step-1').style.display = 'none';
         document.getElementById('step-2').style.display = 'block';
     }
 
     function copyKey() {
-        const text = document.getElementById('key-box').innerText;
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(document.getElementById('key-box').innerText);
         const btn = document.getElementById('copy-btn');
-        btn.⁹
-            = "COPIED TO CLIPBOARD!";
-        btn.style.background = "#00ffcc";
-        btn.style.color = "#000";
-        setTimeout(() => {
-            btn.innerText = "COPY ACCESS KEY";
-            btn.style.background = "linear-gradient(45deg, #6e00ff, #a000ff)";
-            btn.style.color = "#fff";
-        }, 2000);
+        btn.innerText = "COPIED!";
+        setTimeout(() => { btn.innerText = "COPY ACCESS KEY"; }, 2000);
     }
-
-    document.onkeydown = function(e) {
-        if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
-            return false;
-        }
-    };
 </script>
 </body>
 </html>
