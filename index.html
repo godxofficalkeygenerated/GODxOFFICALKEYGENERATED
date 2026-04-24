@@ -30,9 +30,9 @@
             backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 35px; 
-            padding: 50px 30px; /* Padding badhai hai */
-            width: 90%; /* Box thoda bada kiya hai */
-            max-width: 450px; /* Max size bhi badha di hai */
+            padding: 50px 30px;
+            width: 90%;
+            max-width: 450px;
             text-align: center;
             box-shadow: 0 0 50px rgba(110, 0, 255, 0.25);
             animation: slideUp 0.8s ease-out;
@@ -55,6 +55,7 @@
         }
 
         .btn-premium:active { transform: scale(0.95); }
+        .btn-premium:disabled { opacity: 0.5; cursor: not-allowed; }
 
         #key-box {
             background: rgba(0,0,0,0.6); border: 2px dashed #00d4ff;
@@ -66,6 +67,7 @@
         .tg-btn { margin-top: 30px; text-decoration: none; color: #24A1DE; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 14px; }
         
         #cheat-error { display: none; color: #ff4d4d; }
+        #hwid-info { font-size: 10px; color: #444; margin-top: 10px; letter-spacing: 1px; }
 
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -74,7 +76,7 @@
 
 <div id="god-overlay">
     <div id="particles-js"></div>
-    <div class="logo-text">GOD X OFFICAL</div>
+    <div class="logo-text">GOD X OFFICIAL</div>
     <div style="font-size: 11px; color: #6e00ff; margin-bottom: 30px; letter-spacing: 3px; font-weight: bold;">AUTHORIZE ACCESS</div>
 
     <div id="step-1" class="glass-card">
@@ -85,26 +87,27 @@
 
         <div id="verify-content">
             <h3 style="margin-top:0; font-family: 'Orbitron'; letter-spacing: 1px;">VERIFICATION</h3>
-            <p style="color:#888; font-size: 13px; margin-bottom: 25px;">Complete the robot check to Get Key.</p>
+            <p style="color:#888; font-size: 13px; margin-bottom: 25px;">Complete the robot check and get your key.</p>
             
             <div style="display: flex; justify-content: center; margin-bottom: 15px;">
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2OOULF4WlpGlnu" data-callback="onVerify" data-theme="dark"></div>
             </div>
             
             <div id="loading-box" style="display:none; margin-top:20px; color:#00d4ff; font-weight: bold; font-size: 16px; letter-spacing: 1px;">
-                Verification... <span id="timer">15</span>s
+                DECRYPTING SERVER... <span id="timer">15</span>s
             </div>
 
             <button id="gen-btn" class="btn-premium" style="display:none;" onclick="showKey()">GET ACCESS KEY</button>
+            <div id="hwid-info">DETECTING DEVICE ID...</div>
         </div>
     </div>
 
     <div id="step-2" class="glass-card" style="display:none;">
         <h3 style="margin-top:0; color:#00ffcc; font-family: 'Orbitron';">KEY GENERATED</h3>
-        <p style="color:#888; font-size: 12px;">KEY REGISTER SUCCESSFULLY</p>
+        <p style="color:#888; font-size: 12px;">KEY REGISTER SUCCESSFULLY </p>
         <div id="key-box">GENERATING...</div>
         <button id="copy-btn" class="btn-premium" onclick="copyKey()">COPY ACCESS KEY</button>
-        <p style="color:#555; margin-top:25px; font-size: 11px; font-weight: bold;">KEY GENERATED SUCCESSFULLY</p>
+        <p style="color:#555; margin-top:25px; font-size: 11px; font-weight: bold;">COPY ACCESS YOUR MOD KEY</p>
     </div>
 
     <a href="https://t.me/+Pva19q6Ds4I0OWE1" class="tg-btn" target="_blank">
@@ -113,24 +116,74 @@
     </a>
 </div>
 
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCSh-Fuf4pdw5oVDSKYVKBTlx1pZpWZ44E",
+        authDomain: "god-key-system.firebaseapp.com",
+        projectId: "god-key-system",
+        storageBucket: "god-key-system.firebasestorage.app",
+        messagingSenderId: "80467328217",
+        appId: "1:80467328217:web:a8ffb3558ac6467bae92c8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    function getHWID() {
+        let hwid = localStorage.getItem('god_hwid');
+        if (!hwid) {
+            hwid = 'GOD-ID-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            localStorage.setItem('god_hwid', hwid);
+        }
+        return hwid;
+    }
+
+    document.getElementById('hwid-info').innerText = "DEVICE: " + getHWID();
+
+    window.showKey = async function() {
+        if(!window.verified) return;
+        
+        const btn = document.getElementById('gen-btn');
+        btn.disabled = true;
+        btn.innerText = "LOCKING TO CLOUD...";
+
+        const finalKey = "GOD-X-OFFICAL-" + Math.floor(100000 + Math.random() * 900000);
+        const hwid = getHWID();
+
+        try {
+            await setDoc(doc(db, "keys", finalKey), {
+                device_id: hwid,
+                status: "active",
+                timestamp: new Date().toISOString()
+            });
+
+            document.getElementById('key-box').innerText = finalKey;
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+        } catch (e) {
+            alert("Firebase Error! Check Rules.");
+            btn.disabled = false;
+            btn.innerText = "GET ACCESS KEY";
+        }
+    }
+</script>
+
 <script>
-    // Particles configuration
     particlesJS('particles-js', { "particles": { "number": { "value": 70 }, "color": { "value": "#6e00ff" }, "opacity": { "value": 0.4 }, "size": { "value": 2 }, "line_linked": { "enable": true, "color": "#6e00ff", "opacity": 0.2 }, "move": { "enable": true, "speed": 1.2 } } });
 
-    // Security Check
     window.onload = function() {
         var ref = document.referrer;
-        // Anti-refresh protection
         if (performance.navigation.type === 1) { window.location.href = "https://caslinks.com/member/dashboard"; }
-        // Caslinks only access
         if (ref === "" || ref.indexOf("caslinks.com") === -1) {
             document.getElementById('verify-content').style.display = 'none';
             document.getElementById('cheat-error').style.display = 'block';
         }
     }
 
-    let verified = false;
-    const shopKeys = ["GODxOFFICAL-2-8PfFS", "GODxOFFICAL-2-wqShf"];
+    window.verified = false;
 
     function onVerify() {
         document.getElementById('loading-box').style.display = 'block';
@@ -140,20 +193,12 @@
             document.getElementById('timer').innerText = time;
             if(time <= 0) {
                 clearInterval(countdown);
-                verified = true;
-                document.getElementById('loading-box').innerHTML = "KEY GENERATED ";
+                window.verified = true;
+                document.getElementById('loading-box').innerHTML = "ACCESS GRANTED ✅";
                 document.getElementById('loading-box').style.color = "#00ffcc";
                 document.getElementById('gen-btn').style.display = 'block';
             }
         }, 1000);
-    }
-
-    function showKey() {
-        if(!verified) return;
-        const randomKey = shopKeys[Math.floor(Math.random() * shopKeys.length)];
-        document.getElementById('key-box').innerText = randomKey;
-        document.getElementById('step-1').style.display = 'none';
-        document.getElementById('step-2').style.display = 'block';
     }
 
     function copyKey() {
@@ -170,7 +215,6 @@
         }, 2000);
     }
 
-    // Disable Inspect Element
     document.onkeydown = function(e) {
         if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
             return false;
